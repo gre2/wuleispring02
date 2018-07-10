@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+	<!-- id 表示你这个组件的名字，class表示组件类 -->
+	<bean id="myPerson" class="com.wl.Person">
+		<property name="name" value="wulei"/>
+		<property name="address" value="China"/>
+	</bean>
+	<bean id="demoService" class="com.wl.DemoServiceImpl"/>
+	<bean id="demoAspect" class="com.wl.DemoAspect"/>
+	<aop:aspect-list>
+		<aop:aspect id="aop1" bean="demoAspect" target="demoService">
+			<before>beforeMethod</before>
+			<after>afterMethod</after>
+		</aop:aspect>
+	</aop:aspect-list>
+</beans>
